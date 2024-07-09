@@ -1,5 +1,5 @@
 provider "alicloud" {
-  region = var.region
+  region  = var.region
 }
 
 variable "region" {
@@ -12,12 +12,12 @@ terraform {
     organization = "Test_CYH"
 
     workspaces {
-      name = "test-cheng"
+      name       = "test-cheng"
     }
   }
 
   required_providers {
-    alicloud = {
+    alicloud  = {
       source  = "aliyun/alicloud"
       version = "1.140.0"
     }
