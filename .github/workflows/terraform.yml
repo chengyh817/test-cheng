@@ -1,23 +1,14 @@
 name: "Terraform Infrastructure Change Management Pipeline with GitHub Actions"
-
+ 
 on:
-  workflow_dispatch:
-  pull_request:
-    types: 
-      - opened
-      - closed
-      - reopened
-      - synchronize
-    branches:
-      - main
-  push:
-    # Infrastructure should have one "release" branch, promoted from dev to prod to staging.
-    branches:  
-      - main
-    # Use paths to prevent deploying when non IaC code is changed.
-    paths:   
-      - '*.tf'
-#      - '*.tfvars'
+ push:
+   branches:
+   - main
+ pull_request: {}
+ 
+env:
+ # verbosity setting for Terraform logs
+ TF_LOG: INFO
 
 jobs:
   terraform:
